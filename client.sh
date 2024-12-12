@@ -9,7 +9,7 @@ mkdir -p "$PULL_DIRECTORY"
 cd "$PULL_DIRECTORY"
 
 if [ ! -d ".git" ]; then
-	git init >/dev/null 2>&1X
+	git init >/dev/null 2>&1
 	git remote add origin "$GITHUB_TOKEN/$1.git" >/dev/null 2>&1
 fi
 
