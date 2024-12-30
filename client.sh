@@ -8,6 +8,8 @@ VARIABLES="/home/hamster/variables/$1/.env.production.local"
 mkdir -p "$PULL_DIRECTORY"
 cd "$PULL_DIRECTORY"
 
+echo "$GITHUB_TOKEN"
+
 if [ ! -d ".git" ]; then
 	git init >/dev/null 2>&1
 	git remote add origin "$GITHUB_TOKEN/$1.git" >/dev/null 2>&1
