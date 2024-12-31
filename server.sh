@@ -8,8 +8,10 @@ mkdir -p "$PULL_DIRECTORY"
 cd "$PULL_DIRECTORY"
 
 if [ ! -d ".git" ]; then
-	git init >/dev/null 2>&1
-	git remote add origin "$GITHUB_TOKEN/$1.git" >/dev/null 2>&1
+	git init
+	git remote add origin "$GITHUB_TOKEN/$1.git"
+else
+	git remote set-url origin "$GITHUB_TOKEN/$1.git"
 fi
 
 echo -e "\n\n##############################################################\n"
@@ -33,5 +35,3 @@ if [ $? -ne 0 ]; then
 else
 	pm2 restart "$1"
 fi
-
-pm2 save > /dev/null
